@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Door1 = new Button();
+            DoorForest = new Button();
             button2 = new Button();
             DoorTentacles = new Button();
-            button4 = new Button();
+            JustDoor = new Button();
             button5 = new Button();
             button6 = new Button();
             button7 = new Button();
@@ -44,18 +44,18 @@
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
-            // Door1
+            // DoorForest
             // 
-            Door1.BackgroundImage = Properties.Resources.door;
-            Door1.BackgroundImageLayout = ImageLayout.Zoom;
-            Door1.FlatAppearance.BorderSize = 0;
-            Door1.FlatStyle = FlatStyle.Flat;
-            Door1.Location = new Point(62, 37);
-            Door1.Name = "Door1";
-            Door1.Size = new Size(112, 233);
-            Door1.TabIndex = 0;
-            Door1.UseVisualStyleBackColor = true;
-            Door1.Click += Door1_Click;
+            DoorForest.BackgroundImage = Properties.Resources.door;
+            DoorForest.BackgroundImageLayout = ImageLayout.Zoom;
+            DoorForest.FlatAppearance.BorderSize = 0;
+            DoorForest.FlatStyle = FlatStyle.Flat;
+            DoorForest.Location = new Point(62, 37);
+            DoorForest.Name = "DoorForest";
+            DoorForest.Size = new Size(112, 233);
+            DoorForest.TabIndex = 0;
+            DoorForest.UseVisualStyleBackColor = true;
+            DoorForest.Click += DoorForest_Click;
             // 
             // button2
             // 
@@ -82,18 +82,18 @@
             DoorTentacles.TabIndex = 2;
             DoorTentacles.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // JustDoor
             // 
-            button4.BackgroundImage = Properties.Resources.door;
-            button4.BackgroundImageLayout = ImageLayout.Zoom;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(741, 37);
-            button4.Name = "button4";
-            button4.Size = new Size(112, 233);
-            button4.TabIndex = 3;
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            JustDoor.BackgroundImage = Properties.Resources.door;
+            JustDoor.BackgroundImageLayout = ImageLayout.Zoom;
+            JustDoor.FlatAppearance.BorderSize = 0;
+            JustDoor.FlatStyle = FlatStyle.Flat;
+            JustDoor.Location = new Point(741, 37);
+            JustDoor.Name = "JustDoor";
+            JustDoor.Size = new Size(112, 233);
+            JustDoor.TabIndex = 3;
+            JustDoor.UseVisualStyleBackColor = true;
+            JustDoor.Click += JustDoor_Click;
             // 
             // button5
             // 
@@ -196,10 +196,10 @@
             Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(button5);
-            Controls.Add(button4);
+            Controls.Add(JustDoor);
             Controls.Add(DoorTentacles);
             Controls.Add(button2);
-            Controls.Add(Door1);
+            Controls.Add(DoorForest);
             Name = "MainForm";
             Text = "Всем привет с вами демон и андроид";
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
@@ -209,10 +209,10 @@
 
         #endregion
 
-        private Button Door1;
+        private Button DoorForest;
         private Button button2;
         private Button DoorTentacles;
-        private Button button4;
+        private Button JustDoor;
         private Button button5;
         private Button button6;
         private Button button7;
