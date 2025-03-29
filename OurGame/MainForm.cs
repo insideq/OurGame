@@ -223,5 +223,18 @@ namespace OurGame
 
             game.Show();
         }
+
+        private void DoorTruePuzzle_Click(object sender, EventArgs e)
+        {
+            TruePuzzleGameForm puzzle = new TruePuzzleGameForm();
+
+            puzzle.PuzzleCompleted += () =>
+            {
+                DoorTruePuzzle.Visible = false;
+                MessageBox.Show("Дверь исчезла! Можно пройти дальше!");
+            };
+
+            puzzle.Show();
+        }
     }
 }

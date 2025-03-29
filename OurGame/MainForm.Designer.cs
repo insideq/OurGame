@@ -36,7 +36,7 @@
             DoorReactionGame = new Button();
             DoorWordScramble = new Button();
             DoorGuessGame = new Button();
-            button10 = new Button();
+            DoorTruePuzzle = new Button();
             MainCharacterText = new Label();
             MainCharacter = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)MainCharacter).BeginInit();
@@ -148,17 +148,18 @@
             DoorGuessGame.UseVisualStyleBackColor = true;
             DoorGuessGame.Click += DoorGuessGame_Click;
             // 
-            // button10
+            // DoorTruePuzzle
             // 
-            button10.BackgroundImage = Properties.Resources.door;
-            button10.BackgroundImageLayout = ImageLayout.Zoom;
-            button10.FlatAppearance.BorderSize = 0;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Location = new Point(960, 352);
-            button10.Name = "button10";
-            button10.Size = new Size(112, 233);
-            button10.TabIndex = 9;
-            button10.UseVisualStyleBackColor = true;
+            DoorTruePuzzle.BackgroundImage = Properties.Resources.door;
+            DoorTruePuzzle.BackgroundImageLayout = ImageLayout.Zoom;
+            DoorTruePuzzle.FlatAppearance.BorderSize = 0;
+            DoorTruePuzzle.FlatStyle = FlatStyle.Flat;
+            DoorTruePuzzle.Location = new Point(960, 352);
+            DoorTruePuzzle.Name = "DoorTruePuzzle";
+            DoorTruePuzzle.Size = new Size(112, 233);
+            DoorTruePuzzle.TabIndex = 9;
+            DoorTruePuzzle.UseVisualStyleBackColor = true;
+            DoorTruePuzzle.Click += DoorTruePuzzle_Click;
             // 
             // MainCharacterText
             // 
@@ -191,7 +192,7 @@
             ClientSize = new Size(1137, 643);
             Controls.Add(MainCharacter);
             Controls.Add(MainCharacterText);
-            Controls.Add(button10);
+            Controls.Add(DoorTruePuzzle);
             Controls.Add(DoorGuessGame);
             Controls.Add(DoorWordScramble);
             Controls.Add(DoorReactionGame);
@@ -217,7 +218,7 @@
         private Button DoorReactionGame;
         private Button DoorWordScramble;
         private Button DoorGuessGame;
-        private Button button10;
+        private Button DoorTruePuzzle;
         private Label MainCharacterText;
         private PictureBox MainCharacter;
     }
