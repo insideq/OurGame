@@ -206,5 +206,22 @@ namespace OurGame
 
             reactionGame.Show();
         }
+
+        private void DoorGuessGame_Click(object sender, EventArgs e)
+        {
+            GuessNumberForm game = new GuessNumberForm();
+
+            // Подписываемся на событие победы
+            game.OnWin += () =>
+            {
+                // Это выполнится при победе
+                DoorGuessGame.Visible = false;
+
+                // Можно добавить дополнительные действия
+                MessageBox.Show("Дверь исчезла! Появился новый путь!");
+            };
+
+            game.Show();
+        }
     }
 }

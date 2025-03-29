@@ -35,7 +35,7 @@
             DoorMazeGame = new Button();
             DoorReactionGame = new Button();
             DoorWordScramble = new Button();
-            button9 = new Button();
+            DoorGuessGame = new Button();
             button10 = new Button();
             MainCharacterText = new Label();
             MainCharacter = new PictureBox();
@@ -135,17 +135,18 @@
             DoorWordScramble.UseVisualStyleBackColor = true;
             DoorWordScramble.Click += DoorWordScramble_Click;
             // 
-            // button9
+            // DoorGuessGame
             // 
-            button9.BackgroundImage = Properties.Resources.door;
-            button9.BackgroundImageLayout = ImageLayout.Zoom;
-            button9.FlatAppearance.BorderSize = 0;
-            button9.FlatStyle = FlatStyle.Flat;
-            button9.Location = new Point(741, 352);
-            button9.Name = "button9";
-            button9.Size = new Size(112, 233);
-            button9.TabIndex = 8;
-            button9.UseVisualStyleBackColor = true;
+            DoorGuessGame.BackgroundImage = Properties.Resources.door;
+            DoorGuessGame.BackgroundImageLayout = ImageLayout.Zoom;
+            DoorGuessGame.FlatAppearance.BorderSize = 0;
+            DoorGuessGame.FlatStyle = FlatStyle.Flat;
+            DoorGuessGame.Location = new Point(741, 352);
+            DoorGuessGame.Name = "DoorGuessGame";
+            DoorGuessGame.Size = new Size(112, 233);
+            DoorGuessGame.TabIndex = 8;
+            DoorGuessGame.UseVisualStyleBackColor = true;
+            DoorGuessGame.Click += DoorGuessGame_Click;
             // 
             // button10
             // 
@@ -191,7 +192,7 @@
             Controls.Add(MainCharacter);
             Controls.Add(MainCharacterText);
             Controls.Add(button10);
-            Controls.Add(button9);
+            Controls.Add(DoorGuessGame);
             Controls.Add(DoorWordScramble);
             Controls.Add(DoorReactionGame);
             Controls.Add(DoorMazeGame);
@@ -215,7 +216,7 @@
         private Button DoorMazeGame;
         private Button DoorReactionGame;
         private Button DoorWordScramble;
-        private Button button9;
+        private Button DoorGuessGame;
         private Button button10;
         private Label MainCharacterText;
         private PictureBox MainCharacter;
