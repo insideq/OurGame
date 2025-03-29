@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             DoorForest = new Button();
-            button2 = new Button();
+            Door2 = new Button();
             DoorTentacles = new Button();
             JustDoor = new Button();
             button5 = new Button();
@@ -38,10 +38,11 @@
             button7 = new Button();
             button9 = new Button();
             button10 = new Button();
-            MainCharacter = new Button();
             bindingSource1 = new BindingSource(components);
             MainCharacterText = new Label();
+            MainCharacter = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)MainCharacter).BeginInit();
             SuspendLayout();
             // 
             // DoorForest
@@ -57,17 +58,18 @@
             DoorForest.UseVisualStyleBackColor = true;
             DoorForest.Click += DoorForest_Click;
             // 
-            // button2
+            // Door2
             // 
-            button2.BackgroundImage = Properties.Resources.door;
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(295, 37);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 233);
-            button2.TabIndex = 1;
-            button2.UseVisualStyleBackColor = true;
+            Door2.BackgroundImage = Properties.Resources.door;
+            Door2.BackgroundImageLayout = ImageLayout.Zoom;
+            Door2.FlatAppearance.BorderSize = 0;
+            Door2.FlatStyle = FlatStyle.Flat;
+            Door2.Location = new Point(295, 37);
+            Door2.Name = "Door2";
+            Door2.Size = new Size(112, 233);
+            Door2.TabIndex = 1;
+            Door2.UseVisualStyleBackColor = true;
+            Door2.Click += Door2_Click;
             // 
             // DoorTentacles
             // 
@@ -76,9 +78,9 @@
             DoorTentacles.BackgroundImageLayout = ImageLayout.Zoom;
             DoorTentacles.FlatAppearance.BorderSize = 0;
             DoorTentacles.FlatStyle = FlatStyle.Flat;
-            DoorTentacles.Location = new Point(440, 41);
+            DoorTentacles.Location = new Point(443, 41);
             DoorTentacles.Name = "DoorTentacles";
-            DoorTentacles.Size = new Size(267, 224);
+            DoorTentacles.Size = new Size(258, 229);
             DoorTentacles.TabIndex = 2;
             DoorTentacles.UseVisualStyleBackColor = false;
             // 
@@ -155,23 +157,6 @@
             button10.TabIndex = 9;
             button10.UseVisualStyleBackColor = true;
             // 
-            // MainCharacter
-            // 
-            MainCharacter.BackColor = Color.Transparent;
-            MainCharacter.BackgroundImage = Properties.Resources.персонаж;
-            MainCharacter.BackgroundImageLayout = ImageLayout.Zoom;
-            MainCharacter.FlatAppearance.BorderSize = 0;
-            MainCharacter.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            MainCharacter.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            MainCharacter.FlatStyle = FlatStyle.Flat;
-            MainCharacter.Location = new Point(939, 49);
-            MainCharacter.Margin = new Padding(0);
-            MainCharacter.Name = "MainCharacter";
-            MainCharacter.Size = new Size(150, 208);
-            MainCharacter.TabIndex = 10;
-            MainCharacter.UseVisualStyleBackColor = false;
-            MainCharacter.Click += MainCharacter_Click;
-            // 
             // MainCharacterText
             // 
             MainCharacterText.AutoSize = true;
@@ -182,6 +167,18 @@
             MainCharacterText.TabIndex = 11;
             MainCharacterText.Visible = false;
             // 
+            // MainCharacter
+            // 
+            MainCharacter.BackColor = Color.Transparent;
+            MainCharacter.BackgroundImage = Properties.Resources.персонаж;
+            MainCharacter.BackgroundImageLayout = ImageLayout.Zoom;
+            MainCharacter.Location = new Point(922, 41);
+            MainCharacter.Name = "MainCharacter";
+            MainCharacter.Size = new Size(150, 208);
+            MainCharacter.TabIndex = 12;
+            MainCharacter.TabStop = false;
+            MainCharacter.Click += MainCharacter_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -189,8 +186,8 @@
             BackgroundImage = Properties.Resources.ковер;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1137, 643);
-            Controls.Add(MainCharacterText);
             Controls.Add(MainCharacter);
+            Controls.Add(MainCharacterText);
             Controls.Add(button10);
             Controls.Add(button9);
             Controls.Add(button7);
@@ -198,11 +195,12 @@
             Controls.Add(button5);
             Controls.Add(JustDoor);
             Controls.Add(DoorTentacles);
-            Controls.Add(button2);
+            Controls.Add(Door2);
             Controls.Add(DoorForest);
             Name = "MainForm";
             Text = "Всем привет с вами демон и андроид";
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)MainCharacter).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -210,7 +208,7 @@
         #endregion
 
         private Button DoorForest;
-        private Button button2;
+        private Button Door2;
         private Button DoorTentacles;
         private Button JustDoor;
         private Button button5;
@@ -218,8 +216,8 @@
         private Button button7;
         private Button button9;
         private Button button10;
-        private Button MainCharacter;
         private BindingSource bindingSource1;
         private Label MainCharacterText;
+        private PictureBox MainCharacter;
     }
 }

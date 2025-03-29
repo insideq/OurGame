@@ -10,6 +10,7 @@ namespace OurGame
         private float floatSpeed = 0.2f; // Скорость "парения"
         private float floatAmplitude = 5f; // Высота "подпрыгивания"
         private int originalY; // Изначальная позиция кнопки
+        private bool doorPuzzleSolved = false; // Флаг решения головоломки
 
 
         public MainForm()
@@ -47,6 +48,30 @@ namespace OurGame
             backgroundMusic?.Dispose();
         }
 
+        private void FloatAnimation_Tick(object sender, EventArgs e)
+        {
+            floatYPosition += floatSpeed;
+
+            // Синусоидальное движение для плавности
+            float newY = originalY + (float)(Math.Sin(floatYPosition) * floatAmplitude);
+
+            // Применяем новую позицию
+            MainCharacter.Top = (int)newY;
+        }
+
+        private void JustDoor_Click(object sender, EventArgs e)
+        {
+            PuzzleForm puzzle = new();
+            puzzle.PuzzleSolved += (s, args) =>
+            {
+                // Это сработает когда головоломка решена
+                doorPuzzleSolved = true;
+                JustDoor.Visible = false; // Скрываем дверь
+                MessageBox.Show("Дверь исчезла! Появился новый путь!");
+            };
+            puzzle.Show();
+        }
+
         private void MainCharacter_Click(object sender, EventArgs e)
         {
             // Массив с разными фразами
@@ -73,29 +98,19 @@ namespace OurGame
             MainCharacterText.Visible = true;
 
             // Опционально: автоматически скрыть через 3 секунды
-            //Task.Delay(3000).ContinueWith(_ =>
-            //{
-            //    if (MainCharacterText.InvokeRequired)
-            //        MainCharacterText.Invoke(new Action(() => MainCharacterText.Visible = false));
-            //    else
-            //        MainCharacterText.Visible = false;
-            //});
+            Task.Delay(3000).ContinueWith(_ =>
+            {
+                if (MainCharacterText.InvokeRequired)
+                    MainCharacterText.Invoke(new Action(() => MainCharacterText.Visible = false));
+                else
+                    MainCharacterText.Visible = false;
+            });
         }
 
-        private void FloatAnimation_Tick(object sender, EventArgs e)
+        private void Door2_Click(object sender, EventArgs e)
         {
-            floatYPosition += floatSpeed;
-
-            // Синусоидальное движение для плавности
-            float newY = originalY + (float)(Math.Sin(floatYPosition) * floatAmplitude);
-
-            // Применяем новую позицию
-            MainCharacter.Top = (int)newY;
-        }
-
-        private void JustDoor_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Я просто дверь");
+            SlidingPuzzleForm slidingPuzzle = new();
+            slidingPuzzle.Show();
         }
     }
 }
