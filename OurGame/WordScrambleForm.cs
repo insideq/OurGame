@@ -48,7 +48,7 @@
                     Text = letters[i].ToString(),
                     Font = new Font("Arial", 16, FontStyle.Bold),
                     Size = new Size(40, 40),
-                    Location = new Point(50 + i * 50, 50),
+                    Location = new Point(60 + i * 70, 50),
                     BackColor = Color.LightBlue,
                     TextAlign = ContentAlignment.MiddleCenter,
                     BorderStyle = BorderStyle.FixedSingle,
@@ -71,7 +71,7 @@
                 Label dropZone = new Label
                 {
                     Size = new Size(40, 40),
-                    Location = new Point(50 + i * 50, 150),
+                    Location = new Point(60 + i * 70, 150),
                     BackColor = Color.LightGray,
                     BorderStyle = BorderStyle.FixedSingle,
                     TextAlign = ContentAlignment.MiddleCenter,
@@ -88,8 +88,8 @@
             Button checkButton = new Button
             {
                 Text = "Проверить",
-                Size = new Size(100, 40),
-                Location = new Point(250, 250),
+                Size = new Size(130, 40),
+                Location = new Point(220, 250),
                 Font = new Font("Arial", 12)
             };
             checkButton.Click += CheckButton_Click;
