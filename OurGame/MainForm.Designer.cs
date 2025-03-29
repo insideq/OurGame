@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             DoorForest = new Button();
-            Door2 = new Button();
+            DoorSlidingPuzzle = new Button();
             DoorTentacles = new Button();
-            JustDoor = new Button();
+            DoorPuzzle = new Button();
             button5 = new Button();
             button6 = new Button();
-            button7 = new Button();
+            DoorWordScramble = new Button();
             button9 = new Button();
             button10 = new Button();
-            bindingSource1 = new BindingSource(components);
             MainCharacterText = new Label();
             MainCharacter = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MainCharacter).BeginInit();
             SuspendLayout();
             // 
@@ -58,18 +55,18 @@
             DoorForest.UseVisualStyleBackColor = true;
             DoorForest.Click += DoorForest_Click;
             // 
-            // Door2
+            // DoorSlidingPuzzle
             // 
-            Door2.BackgroundImage = Properties.Resources.door;
-            Door2.BackgroundImageLayout = ImageLayout.Zoom;
-            Door2.FlatAppearance.BorderSize = 0;
-            Door2.FlatStyle = FlatStyle.Flat;
-            Door2.Location = new Point(295, 37);
-            Door2.Name = "Door2";
-            Door2.Size = new Size(112, 233);
-            Door2.TabIndex = 1;
-            Door2.UseVisualStyleBackColor = true;
-            Door2.Click += Door2_Click;
+            DoorSlidingPuzzle.BackgroundImage = Properties.Resources.door;
+            DoorSlidingPuzzle.BackgroundImageLayout = ImageLayout.Zoom;
+            DoorSlidingPuzzle.FlatAppearance.BorderSize = 0;
+            DoorSlidingPuzzle.FlatStyle = FlatStyle.Flat;
+            DoorSlidingPuzzle.Location = new Point(295, 37);
+            DoorSlidingPuzzle.Name = "DoorSlidingPuzzle";
+            DoorSlidingPuzzle.Size = new Size(112, 233);
+            DoorSlidingPuzzle.TabIndex = 1;
+            DoorSlidingPuzzle.UseVisualStyleBackColor = true;
+            DoorSlidingPuzzle.Click += DoorSlidingPuzzle_Click;
             // 
             // DoorTentacles
             // 
@@ -77,25 +74,26 @@
             DoorTentacles.BackgroundImage = Properties.Resources.щупальца;
             DoorTentacles.BackgroundImageLayout = ImageLayout.Zoom;
             DoorTentacles.FlatAppearance.BorderSize = 0;
-            DoorTentacles.FlatStyle = FlatStyle.Flat;
+            DoorTentacles.FlatStyle = FlatStyle.Popup;
             DoorTentacles.Location = new Point(443, 41);
             DoorTentacles.Name = "DoorTentacles";
             DoorTentacles.Size = new Size(258, 229);
             DoorTentacles.TabIndex = 2;
             DoorTentacles.UseVisualStyleBackColor = false;
+            DoorTentacles.Click += DoorTentacles_Click;
             // 
-            // JustDoor
+            // DoorPuzzle
             // 
-            JustDoor.BackgroundImage = Properties.Resources.door;
-            JustDoor.BackgroundImageLayout = ImageLayout.Zoom;
-            JustDoor.FlatAppearance.BorderSize = 0;
-            JustDoor.FlatStyle = FlatStyle.Flat;
-            JustDoor.Location = new Point(741, 37);
-            JustDoor.Name = "JustDoor";
-            JustDoor.Size = new Size(112, 233);
-            JustDoor.TabIndex = 3;
-            JustDoor.UseVisualStyleBackColor = true;
-            JustDoor.Click += JustDoor_Click;
+            DoorPuzzle.BackgroundImage = Properties.Resources.door;
+            DoorPuzzle.BackgroundImageLayout = ImageLayout.Zoom;
+            DoorPuzzle.FlatAppearance.BorderSize = 0;
+            DoorPuzzle.FlatStyle = FlatStyle.Flat;
+            DoorPuzzle.Location = new Point(741, 37);
+            DoorPuzzle.Name = "DoorPuzzle";
+            DoorPuzzle.Size = new Size(112, 233);
+            DoorPuzzle.TabIndex = 3;
+            DoorPuzzle.UseVisualStyleBackColor = true;
+            DoorPuzzle.Click += DoorPuzzle_Click;
             // 
             // button5
             // 
@@ -121,17 +119,18 @@
             button6.TabIndex = 5;
             button6.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // DoorWordScramble
             // 
-            button7.BackgroundImage = Properties.Resources.door;
-            button7.BackgroundImageLayout = ImageLayout.Zoom;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Location = new Point(520, 352);
-            button7.Name = "button7";
-            button7.Size = new Size(112, 233);
-            button7.TabIndex = 6;
-            button7.UseVisualStyleBackColor = true;
+            DoorWordScramble.BackgroundImage = Properties.Resources.door;
+            DoorWordScramble.BackgroundImageLayout = ImageLayout.Zoom;
+            DoorWordScramble.FlatAppearance.BorderSize = 0;
+            DoorWordScramble.FlatStyle = FlatStyle.Flat;
+            DoorWordScramble.Location = new Point(520, 352);
+            DoorWordScramble.Name = "DoorWordScramble";
+            DoorWordScramble.Size = new Size(112, 233);
+            DoorWordScramble.TabIndex = 6;
+            DoorWordScramble.UseVisualStyleBackColor = true;
+            DoorWordScramble.Click += DoorWordScramble_Click;
             // 
             // button9
             // 
@@ -190,16 +189,15 @@
             Controls.Add(MainCharacterText);
             Controls.Add(button10);
             Controls.Add(button9);
-            Controls.Add(button7);
+            Controls.Add(DoorWordScramble);
             Controls.Add(button6);
             Controls.Add(button5);
-            Controls.Add(JustDoor);
+            Controls.Add(DoorPuzzle);
             Controls.Add(DoorTentacles);
-            Controls.Add(Door2);
+            Controls.Add(DoorSlidingPuzzle);
             Controls.Add(DoorForest);
             Name = "MainForm";
             Text = "Всем привет с вами демон и андроид";
-            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)MainCharacter).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -208,15 +206,14 @@
         #endregion
 
         private Button DoorForest;
-        private Button Door2;
+        private Button DoorSlidingPuzzle;
         private Button DoorTentacles;
-        private Button JustDoor;
+        private Button DoorPuzzle;
         private Button button5;
         private Button button6;
-        private Button button7;
+        private Button DoorWordScramble;
         private Button button9;
         private Button button10;
-        private BindingSource bindingSource1;
         private Label MainCharacterText;
         private PictureBox MainCharacter;
     }

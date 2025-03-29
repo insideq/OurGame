@@ -38,6 +38,8 @@ namespace OurGame
         private void DoorForest_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Вы кто такие? Я вас не звал\nИдите лесом");
+            DoorForest.Visible = false;
+            MessageBox.Show("Дверь исчезла...");
         }
 
         // Не забудьте освободить ресурсы при закрытии формы
@@ -59,14 +61,14 @@ namespace OurGame
             MainCharacter.Top = (int)newY;
         }
 
-        private void JustDoor_Click(object sender, EventArgs e)
+        private void DoorPuzzle_Click(object sender, EventArgs e)
         {
             PuzzleForm puzzle = new();
             puzzle.PuzzleSolved += (s, args) =>
             {
                 // Это сработает когда головоломка решена
                 doorPuzzleSolved = true;
-                JustDoor.Visible = false; // Скрываем дверь
+                DoorPuzzle.Visible = false; // Скрываем дверь
                 MessageBox.Show("Дверь исчезла! Появился новый путь!");
             };
             puzzle.Show();
@@ -107,10 +109,29 @@ namespace OurGame
             });
         }
 
-        private void Door2_Click(object sender, EventArgs e)
+        private void DoorSlidingPuzzle_Click(object sender, EventArgs e)
         {
             SlidingPuzzleForm slidingPuzzle = new();
             slidingPuzzle.Show();
+        }
+
+        private void DoorTentacles_Click(object sender, EventArgs e)
+        {
+            string imagePath = @"C:\Users\Имя\Desktop\OurGame\OurGame\Resources\Puzzle.jpg"; // Укажите путь к вашему изображению
+            ImagePuzzleForm imagePuzzle = new ImagePuzzleForm(imagePath);
+            imagePuzzle.Show();
+        }
+
+        private void DoorWordScramble_Click(object sender, EventArgs e)
+        {
+            WordScrambleForm wordScramble = new WordScrambleForm();
+            wordScramble.PuzzleSolved += (s, args) =>
+            {
+                // Скрываем дверь после решения головоломки
+                DoorWordScramble.Visible = false;
+                MessageBox.Show("Дверь исчезла! Появился новый путь!");
+            };
+            wordScramble.Show();
         }
     }
 }
