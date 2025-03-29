@@ -178,13 +178,33 @@ namespace OurGame
         private void DoorMazeGame_Click(object sender, EventArgs e)
         {
             MazeGameForm mazeGame = new MazeGameForm();
-            mazeGame.PuzzleSolved += (s, args) => {
+            mazeGame.PuzzleSolved += (s, args) =>
+            {
                 // Действия при прохождении лабиринта
                 MessageBox.Show("Вы получили ключ от следующей двери!");
                 DoorTentacles.Visible = true;
                 DoorMazeGame.Visible = false;
             };
             mazeGame.Show();
+        }
+
+        private void DoorReactionGame_Click(object sender, EventArgs e)
+        {
+            ReactionGameForm reactionGame = new ReactionGameForm();
+
+            reactionGame.GameCompleted += (s, isSuccess) =>
+            {
+                if (isSuccess)
+                {
+                    // Скрываем дверь только при успешном прохождении
+                    DoorReactionGame.Visible = false;
+
+                    // Можно добавить дополнительные действия
+                    MessageBox.Show("Дверь исчезла! Появился новый путь!");
+                }
+            };
+
+            reactionGame.Show();
         }
     }
 }

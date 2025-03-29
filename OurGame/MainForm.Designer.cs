@@ -33,7 +33,7 @@
             DoorTentacles = new Button();
             DoorFind = new Button();
             DoorMazeGame = new Button();
-            button6 = new Button();
+            DoorReactionGame = new Button();
             DoorWordScramble = new Button();
             button9 = new Button();
             button10 = new Button();
@@ -109,17 +109,18 @@
             DoorMazeGame.UseVisualStyleBackColor = true;
             DoorMazeGame.Click += DoorMazeGame_Click;
             // 
-            // button6
+            // DoorReactionGame
             // 
-            button6.BackgroundImage = Properties.Resources.door;
-            button6.BackgroundImageLayout = ImageLayout.Zoom;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Location = new Point(295, 352);
-            button6.Name = "button6";
-            button6.Size = new Size(112, 233);
-            button6.TabIndex = 5;
-            button6.UseVisualStyleBackColor = true;
+            DoorReactionGame.BackgroundImage = Properties.Resources.door;
+            DoorReactionGame.BackgroundImageLayout = ImageLayout.Zoom;
+            DoorReactionGame.FlatAppearance.BorderSize = 0;
+            DoorReactionGame.FlatStyle = FlatStyle.Flat;
+            DoorReactionGame.Location = new Point(295, 352);
+            DoorReactionGame.Name = "DoorReactionGame";
+            DoorReactionGame.Size = new Size(112, 233);
+            DoorReactionGame.TabIndex = 5;
+            DoorReactionGame.UseVisualStyleBackColor = true;
+            DoorReactionGame.Click += DoorReactionGame_Click;
             // 
             // DoorWordScramble
             // 
@@ -192,7 +193,7 @@
             Controls.Add(button10);
             Controls.Add(button9);
             Controls.Add(DoorWordScramble);
-            Controls.Add(button6);
+            Controls.Add(DoorReactionGame);
             Controls.Add(DoorMazeGame);
             Controls.Add(DoorFind);
             Controls.Add(DoorTentacles);
@@ -212,7 +213,7 @@
         private Button DoorTentacles;
         private Button DoorFind;
         private Button DoorMazeGame;
-        private Button button6;
+        private Button DoorReactionGame;
         private Button DoorWordScramble;
         private Button button9;
         private Button button10;
