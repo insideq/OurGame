@@ -1,7 +1,7 @@
 ﻿namespace OurGame
 {
     /// <summary>
-    /// Игра сбеги от скелетов
+    /// Игра угадай число
     /// </summary>
     public partial class GuessNumberForm : Form
     {
@@ -145,7 +145,9 @@
                 // Вызываем событие победы
                 OnWin?.Invoke();
 
-                InitializeGame();
+                // Закрываем форму после победы
+                this.DialogResult = DialogResult.OK;
+                this.Close();
                 return;
             }
 
@@ -153,7 +155,9 @@
             {
                 historyLabel.Text += $"✖ Проиграл! Загаданное число: {secretNumber}\n";
                 MessageBox.Show($"К сожалению, вы проиграли. Загаданное число: {secretNumber}", "Поражение");
-                InitializeGame();
+                // Закрываем форму после поражения
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
                 return;
             }
 

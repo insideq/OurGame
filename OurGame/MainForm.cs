@@ -15,6 +15,10 @@ namespace OurGame
         private int originalY; // Изначальная позиция кнопки
         private bool doorPuzzleSolved = false; // Флаг решения головоломки
 
+        // Таймер для анимации исчезновения дверей
+        private System.Windows.Forms.Timer doorFadeTimer;
+        private Control currentFadingDoor;
+        private float doorOpacity = 1.0f;
 
         public MainForm()
         {
@@ -23,11 +27,16 @@ namespace OurGame
             originalY = MainCharacter.Top; // Запоминаем стартовую позицию
             floatYPosition = 0;
 
-            // Таймер для анимации (обновляется каждые 20 мс)
+            // Таймер для анимации персонажа (обновляется каждые 20 мс)
             System.Windows.Forms.Timer floatTimer = new System.Windows.Forms.Timer();
             floatTimer.Interval = 20;
             floatTimer.Tick += FloatAnimation_Tick;
             floatTimer.Start();
+
+            // Инициализация таймера для анимации дверей
+            doorFadeTimer = new System.Windows.Forms.Timer();
+            doorFadeTimer.Interval = 30; // Интервал в миллисекундах
+            doorFadeTimer.Tick += DoorFadeAnimation_Tick;
 
             // Загрузка музыки из ресурсов
             //backgroundMusic = new SoundPlayer(Properties.Resources.MORGENSHTERN_ДУЛО);
@@ -38,6 +47,42 @@ namespace OurGame
             //backgroundMusic.PlayLooping();
         }
 
+        // Анимация исчезновения двери
+        private void DoorFadeAnimation_Tick(object sender, EventArgs e)
+        {
+            if (currentFadingDoor != null)
+            {
+                doorOpacity -= 0.2f;
+
+                if (doorOpacity <= 0)
+                {
+                    currentFadingDoor.Visible = false;
+                    currentFadingDoor = null;
+                    doorFadeTimer.Stop();
+                    return;
+                }
+
+                // Применяем прозрачность
+                currentFadingDoor.BackColor = Color.FromArgb((int)(doorOpacity * 255),
+                    currentFadingDoor.BackColor);
+
+                // Уменьшаем размер
+                float scale = 0.9f; // Коэффициент уменьшения
+                currentFadingDoor.Width = (int)(currentFadingDoor.Width * scale);
+                currentFadingDoor.Height = (int)(currentFadingDoor.Height * scale);
+                currentFadingDoor.Left += (int)(currentFadingDoor.Width * (1 - scale) / 2);
+                currentFadingDoor.Top += (int)(currentFadingDoor.Height * (1 - scale) / 2);
+            }
+        }
+
+        // Запуск анимации исчезновения двери
+        private void StartDoorFade(Control door)
+        {
+            currentFadingDoor = door;
+            doorOpacity = 1.0f;
+            doorFadeTimer.Start();
+        }
+
         /// <summary>
         /// Дверь, которая шлёт лесом
         /// </summary>
@@ -45,8 +90,8 @@ namespace OurGame
         /// <param name="e"></param>
         private void DoorForest_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Вы кто такие? Я вас не звал\nИдите лесом");
-            DoorForest.Visible = false;
+            MessageBox.Show("Вы кто такие? Я вас не звал\nИдите лесом"); 
+            StartDoorFade(DoorForest);
             MessageBox.Show("Дверь исчезла...");
         }
 
@@ -89,7 +134,7 @@ namespace OurGame
             {
                 // Это сработает когда головоломка решена
                 doorPuzzleSolved = true;
-                DoorFind.Visible = false; // Скрываем дверь
+                StartDoorFade(DoorFind);
                 MessageBox.Show("Дверь исчезла! Появился новый путь!");
             };
             puzzle.Show();
@@ -182,7 +227,7 @@ namespace OurGame
                 // Действия при прохождении лабиринта
                 MessageBox.Show("Вы получили ключ от следующей двери!");
                 DoorTentacles.Visible = true;
-                DoorMazeGame.Visible = false;
+                StartDoorFade(DoorMazeGame);
             };
             mazeGame.Show();
         }
@@ -196,7 +241,7 @@ namespace OurGame
                 if (isSuccess)
                 {
                     // Скрываем дверь только при успешном прохождении
-                    DoorReactionGame.Visible = false;
+                    StartDoorFade(DoorReactionGame);
 
                     // Можно добавить дополнительные действия
                     MessageBox.Show("Дверь исчезла! Появился новый путь!");
@@ -214,7 +259,7 @@ namespace OurGame
             game.OnWin += () =>
             {
                 // Это выполнится при победе
-                DoorGuessGame.Visible = false;
+                StartDoorFade(DoorGuessGame);
 
                 // Можно добавить дополнительные действия
                 MessageBox.Show("Дверь исчезла! Появился новый путь!");
@@ -229,7 +274,7 @@ namespace OurGame
 
             puzzle.PuzzleCompleted += () =>
             {
-                DoorTruePuzzle.Visible = false;
+                StartDoorFade(DoorTruePuzzle);
                 MessageBox.Show("Дверь исчезла! Можно пройти дальше!");
             };
 
