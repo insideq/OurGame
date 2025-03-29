@@ -1,5 +1,8 @@
 ﻿namespace OurGame
 {
+    /// <summary>
+    /// Отгадай слово
+    /// </summary>
     public partial class WordScrambleForm: Form
     {
         private string correctWord = "ВСПОМНИ"; // Правильное слово

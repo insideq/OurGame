@@ -1,6 +1,6 @@
 ﻿namespace OurGame
 {
-    partial class PuzzleForm
+    partial class MemoryPuzzleForm
     {
         /// <summary>
         /// Required designer variable.

@@ -31,7 +31,7 @@
             DoorForest = new Button();
             DoorSlidingPuzzle = new Button();
             DoorTentacles = new Button();
-            DoorPuzzle = new Button();
+            DoorFind = new Button();
             button5 = new Button();
             button6 = new Button();
             DoorWordScramble = new Button();
@@ -82,18 +82,18 @@
             DoorTentacles.UseVisualStyleBackColor = false;
             DoorTentacles.Click += DoorTentacles_Click;
             // 
-            // DoorPuzzle
+            // DoorFind
             // 
-            DoorPuzzle.BackgroundImage = Properties.Resources.door;
-            DoorPuzzle.BackgroundImageLayout = ImageLayout.Zoom;
-            DoorPuzzle.FlatAppearance.BorderSize = 0;
-            DoorPuzzle.FlatStyle = FlatStyle.Flat;
-            DoorPuzzle.Location = new Point(741, 37);
-            DoorPuzzle.Name = "DoorPuzzle";
-            DoorPuzzle.Size = new Size(112, 233);
-            DoorPuzzle.TabIndex = 3;
-            DoorPuzzle.UseVisualStyleBackColor = true;
-            DoorPuzzle.Click += DoorPuzzle_Click;
+            DoorFind.BackgroundImage = Properties.Resources.door;
+            DoorFind.BackgroundImageLayout = ImageLayout.Zoom;
+            DoorFind.FlatAppearance.BorderSize = 0;
+            DoorFind.FlatStyle = FlatStyle.Flat;
+            DoorFind.Location = new Point(741, 37);
+            DoorFind.Name = "DoorFind";
+            DoorFind.Size = new Size(112, 233);
+            DoorFind.TabIndex = 3;
+            DoorFind.UseVisualStyleBackColor = true;
+            DoorFind.Click += DoorFind_Click;
             // 
             // button5
             // 
@@ -192,7 +192,7 @@
             Controls.Add(DoorWordScramble);
             Controls.Add(button6);
             Controls.Add(button5);
-            Controls.Add(DoorPuzzle);
+            Controls.Add(DoorFind);
             Controls.Add(DoorTentacles);
             Controls.Add(DoorSlidingPuzzle);
             Controls.Add(DoorForest);
@@ -208,7 +208,7 @@
         private Button DoorForest;
         private Button DoorSlidingPuzzle;
         private Button DoorTentacles;
-        private Button DoorPuzzle;
+        private Button DoorFind;
         private Button button5;
         private Button button6;
         private Button DoorWordScramble;

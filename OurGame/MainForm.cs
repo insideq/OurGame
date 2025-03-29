@@ -2,9 +2,12 @@ using System.Media;
 
 namespace OurGame
 {
+    /// <summary>
+    /// Главная форма
+    /// </summary>
     public partial class MainForm : Form
     {
-        private SoundPlayer backgroundMusic;
+        private SoundPlayer backgroundMusic; // Музыка на фон
 
         private float floatYPosition; // Текущая Y-координата для плавного движения
         private float floatSpeed = 0.2f; // Скорость "парения"
@@ -35,6 +38,11 @@ namespace OurGame
             //backgroundMusic.PlayLooping();
         }
 
+        /// <summary>
+        /// Дверь, которая шлёт лесом
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DoorForest_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Вы кто такие? Я вас не звал\nИдите лесом");
@@ -42,7 +50,10 @@ namespace OurGame
             MessageBox.Show("Дверь исчезла...");
         }
 
-        // Не забудьте освободить ресурсы при закрытии формы
+        /// <summary>
+        /// Освобождаем ресурсы при закрытии формы
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -50,6 +61,11 @@ namespace OurGame
             backgroundMusic?.Dispose();
         }
 
+        /// <summary>
+        /// Анимация персонажа
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FloatAnimation_Tick(object sender, EventArgs e)
         {
             floatYPosition += floatSpeed;
@@ -61,19 +77,29 @@ namespace OurGame
             MainCharacter.Top = (int)newY;
         }
 
-        private void DoorPuzzle_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Найди пару
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DoorFind_Click(object sender, EventArgs e)
         {
-            PuzzleForm puzzle = new();
+            MemoryPuzzleForm puzzle = new();
             puzzle.PuzzleSolved += (s, args) =>
             {
                 // Это сработает когда головоломка решена
                 doorPuzzleSolved = true;
-                DoorPuzzle.Visible = false; // Скрываем дверь
+                DoorFind.Visible = false; // Скрываем дверь
                 MessageBox.Show("Дверь исчезла! Появился новый путь!");
             };
             puzzle.Show();
         }
 
+        /// <summary>
+        /// Обработка нажатия на персонажа, он говорит
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainCharacter_Click(object sender, EventArgs e)
         {
             // Массив с разными фразами
@@ -109,12 +135,22 @@ namespace OurGame
             });
         }
 
+        /// <summary>
+        /// Пятнашки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DoorSlidingPuzzle_Click(object sender, EventArgs e)
         {
             SlidingPuzzleForm slidingPuzzle = new();
             slidingPuzzle.Show();
         }
 
+        /// <summary>
+        /// Пятнашки с изображением
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DoorTentacles_Click(object sender, EventArgs e)
         {
             string imagePath = @"C:\Users\Имя\Desktop\OurGame\OurGame\Resources\Puzzle.jpg"; // Укажите путь к вашему изображению
@@ -122,6 +158,11 @@ namespace OurGame
             imagePuzzle.Show();
         }
 
+        /// <summary>
+        /// Составить слово (Ответ: Вспомни)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DoorWordScramble_Click(object sender, EventArgs e)
         {
             WordScrambleForm wordScramble = new WordScrambleForm();

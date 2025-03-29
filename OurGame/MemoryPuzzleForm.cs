@@ -1,6 +1,9 @@
 ﻿namespace OurGame
 {
-    public partial class PuzzleForm : Form
+    /// <summary>
+    /// Найди пару
+    /// </summary>
+    public partial class MemoryPuzzleForm : Form
     {
         private const int GridSize = 4; // 4x4 grid (16 tiles, 8 pairs)
         private const int TileSize = 100;
@@ -17,7 +20,7 @@
 
         public event EventHandler PuzzleSolved; // Событие решения головоломки
 
-        public PuzzleForm()
+        public MemoryPuzzleForm()
         {
             this.Text = "Пазл на память: Найди пары";
             this.ClientSize = new Size(
@@ -209,7 +212,7 @@
 
         public static void RunGame()
         {
-            Application.Run(new PuzzleForm());
+            Application.Run(new MemoryPuzzleForm());
         }
     }
 }

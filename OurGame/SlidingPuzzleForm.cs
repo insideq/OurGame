@@ -2,6 +2,9 @@
 
 namespace OurGame
 {
+    /// <summary>
+    /// Пятнашки
+    /// </summary>
     public partial class SlidingPuzzleForm: Form
     {
         private int[,] grid;
