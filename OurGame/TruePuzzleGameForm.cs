@@ -1,4 +1,6 @@
-﻿namespace OurGame
+﻿using System.Drawing.Drawing2D;
+
+namespace OurGame
 {
     public partial class TruePuzzleGameForm: Form
     {
@@ -9,21 +11,65 @@
         private PuzzlePiece selectedPiece = null;
         private Point offset;
         private int gridSize = 3; // 3x3 grid
+        private Rectangle targetArea; // Область для сборки пазла
+        private int pieceWidth, pieceHeight;
 
         public TruePuzzleGameForm()
         {
             this.Text = "Собери пазл";
-            this.ClientSize = new Size(600, 600);
+            this.ClientSize = new Size(600, 500);
             this.DoubleBuffered = true;
 
             // Загрузка изображения (замените на свое)
             originalImage = new Bitmap("C:\\Users\\Имя\\Desktop\\OurGame\\OurGame\\Resources\\Puzzle.jpg");
+
+            // Размеры кусочков
+            pieceWidth = originalImage.Width / gridSize;
+            pieceHeight = originalImage.Height / gridSize;
+
+            // Область для сборки (верхний левый угол)
+            targetArea = new Rectangle(0,0,
+                originalImage.Width,
+                originalImage.Height);
+
             InitializePuzzle();
 
             // Обработчики мыши
             this.MouseDown += Puzzle_MouseDown;
             this.MouseMove += Puzzle_MouseMove;
             this.MouseUp += Puzzle_MouseUp;
+            this.Paint += Puzzle_Paint;
+        }
+
+        private void Puzzle_Paint(object sender, PaintEventArgs e)
+        {
+            // Очистка фона
+            e.Graphics.Clear(Color.LightGray);
+
+            // Рисуем целевую область в верхнем левом углу
+            using (Pen dashPen = new Pen(Color.Blue, 2) { DashStyle = DashStyle.Dash })
+            {
+                e.Graphics.DrawRectangle(dashPen, targetArea);
+            }
+
+            // Надпись над целевой областью
+            using (var font = new Font("Arial", 12, FontStyle.Bold))
+            {
+                e.Graphics.DrawString("Перетащите сюда кусочки",
+                                    font, Brushes.Blue,
+                                    targetArea.X, originalImage.Height + 15);
+            }
+
+            // Рисуем кусочки пазла
+            foreach (var piece in pieces)
+            {
+                e.Graphics.DrawImage(piece.Image, piece.Bounds);
+
+                // Рамка для выделения
+                e.Graphics.DrawRectangle(
+                    piece.IsCorrect ? Pens.Green : Pens.Black,
+                    piece.Bounds);
+            }
         }
 
         private void InitializePuzzle()
@@ -48,7 +94,7 @@
                     // Случайная позиция для перемешивания
                     Point randomPos = new Point(
                         rand.Next(0, this.ClientSize.Width - pieceWidth),
-                        rand.Next(0, this.ClientSize.Height - pieceHeight));
+                            rand.Next(0, this.ClientSize.Height - pieceHeight));
 
                     pieces.Add(new PuzzlePiece(
                         pieceImage,
