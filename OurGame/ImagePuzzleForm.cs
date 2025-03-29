@@ -14,11 +14,9 @@
         private int moveCount;
         private Image puzzleImage;
         private Image[,] imageTiles;
-        private string imagePath;
 
-        public ImagePuzzleForm(string imagePath)
+        public ImagePuzzleForm()
         {
-            this.imagePath = imagePath;
             this.Text = "Пятнашки с изображением";
             this.ClientSize = new Size(puzzleSize * tileSize + 20, puzzleSize * tileSize + 70);
             this.DoubleBuffered = true;
@@ -38,7 +36,7 @@
         {
             try
             {
-                puzzleImage = Image.FromFile(imagePath);
+                puzzleImage = new Bitmap(Properties.Resources.Puzzle);
                 puzzleImage = new Bitmap(puzzleImage, puzzleSize * tileSize, puzzleSize * tileSize);
 
                 imageTiles = new Image[puzzleSize, puzzleSize];

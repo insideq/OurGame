@@ -10,7 +10,7 @@
         private System.Windows.Forms.Timer spawnTimer;
         private int score = 0;
         private int timeLeft = 30;
-        private const int MinClicksRequired = 20; // Минимум 20 кликов
+        private const int MinClicksRequired = 15; // Минимум 20 кликов
         private Button target;
         private Label scoreLabel;
         private Label timeLabel;

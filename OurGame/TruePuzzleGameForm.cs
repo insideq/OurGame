@@ -21,7 +21,7 @@ namespace OurGame
             this.DoubleBuffered = true;
 
             // Загрузка изображения (замените на свое)
-            originalImage = new Bitmap("C:\\Users\\Имя\\Desktop\\OurGame\\OurGame\\Resources\\Puzzle.jpg");
+            originalImage = new Bitmap(Properties.Resources.Puzzle);
 
             // Размеры кусочков
             pieceWidth = originalImage.Width / gridSize;

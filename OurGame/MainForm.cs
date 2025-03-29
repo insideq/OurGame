@@ -153,8 +153,7 @@ namespace OurGame
         /// <param name="e"></param>
         private void DoorTentacles_Click(object sender, EventArgs e)
         {
-            string imagePath = @"C:\Users\»м€\Desktop\OurGame\OurGame\Resources\Puzzle.jpg"; // ”кажите путь к вашему изображению
-            ImagePuzzleForm imagePuzzle = new ImagePuzzleForm(imagePath);
+            ImagePuzzleForm imagePuzzle = new ImagePuzzleForm();
             imagePuzzle.Show();
         }
 
