@@ -174,5 +174,17 @@ namespace OurGame
             };
             wordScramble.Show();
         }
+
+        private void DoorMazeGame_Click(object sender, EventArgs e)
+        {
+            MazeGameForm mazeGame = new MazeGameForm();
+            mazeGame.PuzzleSolved += (s, args) => {
+                // Действия при прохождении лабиринта
+                MessageBox.Show("Вы получили ключ от следующей двери!");
+                DoorTentacles.Visible = true;
+                DoorMazeGame.Visible = false;
+            };
+            mazeGame.Show();
+        }
     }
 }

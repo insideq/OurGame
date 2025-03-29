@@ -209,10 +209,5 @@
             flipTimer?.Stop();
             base.OnFormClosing(e);
         }
-
-        public static void RunGame()
-        {
-            Application.Run(new MemoryPuzzleForm());
-        }
     }
 }

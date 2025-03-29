@@ -32,7 +32,7 @@
             DoorSlidingPuzzle = new Button();
             DoorTentacles = new Button();
             DoorFind = new Button();
-            button5 = new Button();
+            DoorMazeGame = new Button();
             button6 = new Button();
             DoorWordScramble = new Button();
             button9 = new Button();
@@ -80,6 +80,7 @@
             DoorTentacles.Size = new Size(258, 229);
             DoorTentacles.TabIndex = 2;
             DoorTentacles.UseVisualStyleBackColor = false;
+            DoorTentacles.Visible = false;
             DoorTentacles.Click += DoorTentacles_Click;
             // 
             // DoorFind
@@ -95,17 +96,18 @@
             DoorFind.UseVisualStyleBackColor = true;
             DoorFind.Click += DoorFind_Click;
             // 
-            // button5
+            // DoorMazeGame
             // 
-            button5.BackgroundImage = Properties.Resources.door;
-            button5.BackgroundImageLayout = ImageLayout.Zoom;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Location = new Point(62, 352);
-            button5.Name = "button5";
-            button5.Size = new Size(112, 233);
-            button5.TabIndex = 4;
-            button5.UseVisualStyleBackColor = true;
+            DoorMazeGame.BackgroundImage = Properties.Resources.door;
+            DoorMazeGame.BackgroundImageLayout = ImageLayout.Zoom;
+            DoorMazeGame.FlatAppearance.BorderSize = 0;
+            DoorMazeGame.FlatStyle = FlatStyle.Flat;
+            DoorMazeGame.Location = new Point(62, 352);
+            DoorMazeGame.Name = "DoorMazeGame";
+            DoorMazeGame.Size = new Size(112, 233);
+            DoorMazeGame.TabIndex = 4;
+            DoorMazeGame.UseVisualStyleBackColor = true;
+            DoorMazeGame.Click += DoorMazeGame_Click;
             // 
             // button6
             // 
@@ -191,7 +193,7 @@
             Controls.Add(button9);
             Controls.Add(DoorWordScramble);
             Controls.Add(button6);
-            Controls.Add(button5);
+            Controls.Add(DoorMazeGame);
             Controls.Add(DoorFind);
             Controls.Add(DoorTentacles);
             Controls.Add(DoorSlidingPuzzle);
@@ -209,7 +211,7 @@
         private Button DoorSlidingPuzzle;
         private Button DoorTentacles;
         private Button DoorFind;
-        private Button button5;
+        private Button DoorMazeGame;
         private Button button6;
         private Button DoorWordScramble;
         private Button button9;
