@@ -8,6 +8,7 @@ namespace OurGame
     public partial class MainForm : Form
     {
         private SoundPlayer backgroundMusic; // Музыка на фон
+        private SoundPlayer openDoor;
 
         private float floatYPosition; // Текущая Y-координата для плавного движения
         private float floatSpeed = 0.2f; // Скорость "парения"
@@ -90,9 +91,12 @@ namespace OurGame
         /// <param name="e"></param>
         private void DoorForest_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Вы кто такие? Я вас не звал\nИдите лесом"); 
+            MessageBox.Show("Поставьте пять..."); 
             StartDoorFade(DoorForest);
             MessageBox.Show("Дверь исчезла...");
+            MainCharacterText.Text = "ААА я посинел...";
+            MainCharacterText.Visible = true;
+            MainCharacter.BackgroundImage = Properties.Resources.перс_синий;
         }
 
         /// <summary>
@@ -136,6 +140,9 @@ namespace OurGame
                 doorPuzzleSolved = true;
                 StartDoorFade(DoorFind);
                 MessageBox.Show("Дверь исчезла! Появился новый путь!");
+                MainCharacterText.Text = "ААА я позеленел...";
+                MainCharacterText.Visible = true;
+                MainCharacter.BackgroundImage = Properties.Resources.перс_зел;
             };
             puzzle.Show();
         }
@@ -198,7 +205,7 @@ namespace OurGame
         /// <param name="e"></param>
         private void DoorTentacles_Click(object sender, EventArgs e)
         {
-            ImagePuzzleForm imagePuzzle = new ImagePuzzleForm();
+            TentacleBossFightForm imagePuzzle = new TentacleBossFightForm();
             imagePuzzle.Show();
         }
 
@@ -215,6 +222,9 @@ namespace OurGame
                 // Скрываем дверь после решения головоломки
                 DoorWordScramble.Visible = false;
                 MessageBox.Show("Дверь исчезла! Появился новый путь!");
+                MainCharacterText.Text = "ААА я пожелтел...";
+                MainCharacterText.Visible = true;
+                MainCharacter.BackgroundImage = Properties.Resources.перс_желт;
             };
             wordScramble.Show();
         }
@@ -228,6 +238,9 @@ namespace OurGame
                 MessageBox.Show("Вы получили ключ от следующей двери!");
                 DoorTentacles.Visible = true;
                 StartDoorFade(DoorMazeGame);
+                MainCharacterText.Text = "ААА я поизумруднел...";
+                MainCharacterText.Visible = true;
+                MainCharacter.BackgroundImage = Properties.Resources.перс_изюм;
             };
             mazeGame.Show();
         }
@@ -240,11 +253,11 @@ namespace OurGame
             {
                 if (isSuccess)
                 {
-                    // Скрываем дверь только при успешном прохождении
                     StartDoorFade(DoorReactionGame);
-
-                    // Можно добавить дополнительные действия
                     MessageBox.Show("Дверь исчезла! Появился новый путь!");
+                    MainCharacterText.Text = "ААА я покраснел...";
+                    MainCharacterText.Visible = true;
+                    MainCharacter.BackgroundImage = Properties.Resources.перс_красн;
                 }
             };
 
@@ -258,11 +271,11 @@ namespace OurGame
             // Подписываемся на событие победы
             game.OnWin += () =>
             {
-                // Это выполнится при победе
                 StartDoorFade(DoorGuessGame);
-
-                // Можно добавить дополнительные действия
                 MessageBox.Show("Дверь исчезла! Появился новый путь!");
+                MainCharacterText.Text = "ААА я полаймел...";
+                MainCharacterText.Visible = true;
+                MainCharacter.BackgroundImage = Properties.Resources.перс_лайм;
             };
 
             game.Show();
@@ -276,6 +289,9 @@ namespace OurGame
             {
                 StartDoorFade(DoorTruePuzzle);
                 MessageBox.Show("Дверь исчезла! Можно пройти дальше!");
+                MainCharacterText.Text = "ААА я побелел...";
+                MainCharacterText.Visible = true;
+                MainCharacter.BackgroundImage = Properties.Resources.персонаж;
             };
 
             puzzle.Show();
